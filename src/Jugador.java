@@ -11,13 +11,12 @@ public class Jugador {
     public int[] getMarcador(){
         int[] marcadorAcumulado= new int[tablero.length];
         for (int indice=0; indice<marcadorAcumulado.length; indice++) {
-            for (int[] arr : tablero) {
-                marcadorAcumulado[indice] = arr[numJugador];
+            marcadorAcumulado[indice]=tablero[indice][numJugador];
             }
-        }
-        for (int indice=1; indice<marcadorAcumulado.length; indice++){
+        for (int indice=1; indice<marcadorAcumulado.length;indice++){
             marcadorAcumulado[indice]=marcadorAcumulado[indice]+marcadorAcumulado[indice-1];
         }
+
         return marcadorAcumulado;
     }
 

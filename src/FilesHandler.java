@@ -59,8 +59,7 @@ public class FilesHandler {
             }
             FileWriter fw = new FileWriter(resultado);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(Integer.toString(ganador));
-            bw.write(Integer.toString(ventaja));
+            bw.write(Integer.toString(ganador)+" "+Integer.toString(ventaja));
             bw.close();
         } catch (IOException e) {
             System.out.println("Ocurrio un error al intentar escribir sobre el archivo");
