@@ -9,15 +9,20 @@ public class Jugador {
     }
 
     public int[] getMarcador(){
-        int[] marcadorAcumulado= new int[tablero.length];
-        for (int indice=0; indice<marcadorAcumulado.length; indice++) {
-            marcadorAcumulado[indice]=tablero[indice][numJugador];
+        try{
+            int[] marcadorAcumulado = new int[tablero.length];
+            for (int indice = 0; indice < marcadorAcumulado.length; indice++) {
+                marcadorAcumulado[indice] = tablero[indice][numJugador];
             }
-        for (int indice=1; indice<marcadorAcumulado.length;indice++){
-            marcadorAcumulado[indice]=marcadorAcumulado[indice]+marcadorAcumulado[indice-1];
-        }
+            for (int indice = 1; indice < marcadorAcumulado.length; indice++) {
+                marcadorAcumulado[indice] = marcadorAcumulado[indice] + marcadorAcumulado[indice - 1];
+            }
 
-        return marcadorAcumulado;
+            return marcadorAcumulado;
+        }catch (NullPointerException ex){
+            System.out.println("Hay un valor incorrecto");
+        }
+        return null;
     }
 
 }

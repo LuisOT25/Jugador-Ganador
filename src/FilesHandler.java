@@ -31,8 +31,8 @@ public class FilesHandler {
                 for (int ronda = 0; ronda < totalRondas; ronda++) {
                     String[] linea= bR.readLine().split(" ");
                     for (int jugador=0; jugador<tablero[ronda].length;jugador++){
-                        if (!linea[jugador].matches("[a-zA-Z0-9]*")){
-                            throw new RuntimeException("Hay un caracter invalido en la linea: "+ronda+1);
+                        if (!linea[jugador].matches("[0-9]*")){
+                            throw new RuntimeException("Hay un caracter invalido en la linea: "+(ronda+1));
                         }
                         tablero[ronda][jugador]=Integer.parseInt(linea[jugador]);
                     }
