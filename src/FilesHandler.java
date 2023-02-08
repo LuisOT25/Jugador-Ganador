@@ -31,6 +31,9 @@ public class FilesHandler {
                 for (int ronda = 0; ronda < totalRondas; ronda++) {
                     String[] linea= bR.readLine().split(" ");
                     for (int jugador=0; jugador<tablero[ronda].length;jugador++){
+                        if (!linea[jugador].matches("[a-zA-Z0-9]*")){
+                            throw new RuntimeException("Hay un caracter invalido en la linea: "+ronda+1);
+                        }
                         tablero[ronda][jugador]=Integer.parseInt(linea[jugador]);
                     }
                 }
@@ -46,7 +49,7 @@ public class FilesHandler {
         return null;
     }
 
-    public void crearArchivo(){
+    public void crearArchivo(int ganador, int ventaja){
         try {
             File resultado = new File(rutaResultao);
             if (!resultado.exists()){
@@ -56,6 +59,9 @@ public class FilesHandler {
             }
             FileWriter fw = new FileWriter(resultado);
             BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(Integer.toString(ganador));
+            bw.write(Integer.toString(ventaja));
+            bw.close();
         } catch (IOException e) {
             System.out.println("Ocurrio un error al intentar escribir sobre el archivo");
         }
